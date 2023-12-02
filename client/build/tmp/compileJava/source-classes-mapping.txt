@@ -1,9 +1,0 @@
-Sorting/_SorterPrxI.java
- Sorting._SorterPrxI
-Sorting/Sorter.java
- Sorting.Sorter
- Sorting.Sorter$1
-Sorting/SorterPrx.java
- Sorting.SorterPrx
-Client.java
- Client
