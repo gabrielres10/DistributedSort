@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Class-Path: file:/C:/Users/Dell/.gradle/caches/modules-2/files-2.1/com
+ .zeroc/ice/3.7.6/6c7f86b7f9e5f0804a7307077e6c058d8a93fa70/ice-3.7.6.j
+ ar file:/C:/Users/Dell/.gradle/caches/modules-2/files-2.1/org.apache.
+ httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869
+ cada/httpclient-4.5.13.jar file:/C:/Users/Dell/.gradle/caches/modules
+ -2/files-2.1/org.apache.httpcomponents/httpcore/4.4.13/853b96d3afbb7b
+ f8cc303fe27ee96836a10c1834/httpcore-4.4.13.jar file:/C:/Users/Dell/.g
+ radle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/
+ 4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar file
+ :/C:/Users/Dell/.gradle/caches/modules-2/files-2.1/commons-codec/comm
+ ons-codec/1.11/3acb4705652e16236558f0f4f2192cc33c3bd189/commons-codec
+ -1.11.jar
+Main-Class: Client
+

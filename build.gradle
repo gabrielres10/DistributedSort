@@ -1,0 +1,31 @@
+plugins {
+    id 'com.zeroc.gradle.ice-builder.slice' version '1.4.7' apply false
+}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.zeroc.gradle.ice-builder.slice'
+    
+    slice {
+        java {
+            files = [file("../Sorting.ice")]
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'com.zeroc:ice:3.7.6'
+        implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    }
+    jar {
+        manifest {
+            attributes(
+                "Main-Class" : project.name.capitalize(),
+                "Class-Path": configurations.runtimeClasspath.resolve().collect {
+                it.toURI() }.join(' ')
+            )
+        }
+    }
+}
