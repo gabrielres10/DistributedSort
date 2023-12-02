@@ -13,6 +13,7 @@ module Sorting
     {
         void registerWorker(Sorter* proxy);
         void unregisterWorker(Sorter* proxy);
+        ["java:type:java.util.ArrayList<String>:java.util.List<String>"] Ice::StringSeq disSort(["java:type:java.util.ArrayList<String>:java.util.List<String>"] Ice::StringSeq inputSequence);
     }
 
 }

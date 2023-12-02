@@ -89,6 +89,64 @@ public interface WorkersHandlerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default java.util.List<String> disSort(java.util.List<String> inputSequence)
+    {
+        return disSort(inputSequence, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default java.util.List<String> disSort(java.util.List<String> inputSequence, java.util.Map<String, String> context)
+    {
+        return _iceI_disSortAsync(inputSequence, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<java.util.List<String>> disSortAsync(java.util.List<String> inputSequence)
+    {
+        return _iceI_disSortAsync(inputSequence, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<java.util.List<String>> disSortAsync(java.util.List<String> inputSequence, java.util.Map<String, String> context)
+    {
+        return _iceI_disSortAsync(inputSequence, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_inputSequence -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<java.util.List<String>> _iceI_disSortAsync(java.util.List<String> iceP_inputSequence, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<java.util.List<String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "disSort", null, sync, null);
+        f.invoke(true, context, null, ostr -> {
+                     if(iceP_inputSequence == null)
+                     {
+                         ostr.writeSize(0);
+                     }
+                     else
+                     {
+                         ostr.writeSize(iceP_inputSequence.size());
+                         for(String elem : iceP_inputSequence)
+                         {
+                             ostr.writeString(elem);
+                         }
+                     }
+                 }, istr -> {
+                     java.util.List<String> ret;
+                     ret = new java.util.ArrayList<String>();
+                     final int len0 = istr.readAndCheckSeqSize(1);
+                     for(int i0 = 0; i0 < len0; i0++)
+                     {
+                         String elem;
+                         elem = istr.readString();
+                         ret.add(elem);
+                     }
+                     return ret;
+                 });
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

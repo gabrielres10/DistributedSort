@@ -3,6 +3,8 @@ import com.zeroc.Ice.*;
 import java.io.*;
 import java.lang.Exception;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
 
@@ -22,8 +24,15 @@ public class Client {
       if (masterCoordinator == null) {
         throw new RuntimeException("Invalid proxy");
       }
-      //ArrayList<String> result = (ArrayList<String>) sorter.sortArray();
-      //System.out.println("Sorted result: " + result.toString());
+
+      List<String> inputList = new ArrayList<>();
+      inputList.add("banana");
+      inputList.add("apple");
+      inputList.add("orange");
+      inputList.add("grape");
+      inputList.add("watermelon");
+      ArrayList<String> result = (ArrayList<String>) masterCoordinator.disSort(inputList);
+      System.out.println("Sorted result: " + result.toString());
     } catch (Exception e) {
       e.printStackTrace();
     } finally {

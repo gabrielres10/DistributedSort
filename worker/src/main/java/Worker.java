@@ -1,5 +1,9 @@
 import com.zeroc.Ice.*;
 import java.lang.Exception;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import Sorting.*;
 
 public class Worker extends Application{
@@ -47,5 +51,19 @@ public class Worker extends Application{
             }
         }
         return 0;
+    }
+
+    public List<String> sortArray(List<String> input) {
+        System.out.println("Received array to sort: " + input.toString());
+
+        // Search file
+
+        // Sort the array
+        ArrayList<String> arrayList = new ArrayList<>(input);
+        Collections.sort(arrayList);
+
+        System.out.println("Sorted array: " + arrayList.toString());
+
+        return arrayList;
     }
 }
