@@ -27,51 +27,72 @@ public class MasterCoordinatorI implements WorkersHandler {
 
     @Override
     public List<String> disSort(List<String> dataToSort, Current current) {
-        List<List<String>> buckets = divideIntoBuckets(dataToSort);
-
-        dataToSort = parallelSortBuckets(buckets);
+        System.out.println("Entra disSort()");
+        List<List<String>> chunks = divideArrayList(dataToSort, (int)(dataToSort.size()/numberOfWorkers));
+        System.out.println("datos chunks:\n"+chunks.toString());
+        //Distribute buckets into Workers
+        List<List<String>> sortedBuckets = new ArrayList<>();
+        for (int i = 0; i<numberOfWorkers; i++) {
+            sortedBuckets.add(this.registeredWorkers.get(i).sortArray(chunks.get(i)));
+        }
+        dataToSort = kWayMerge(sortedBuckets);
+        System.out.println("datos ordenaos:\n"+dataToSort.toString());
 
         return dataToSort;
     }
 
-    private List<List<String>> divideIntoBuckets(List<String> data) {
-        List<List<String>> buckets = new ArrayList<>();
+    private List<List<String>> divideArrayList(List<String> originalList, int chunkSize) {
+        List<List<String>> dividedList = new ArrayList<>();
 
-        // Calcular la amplitud de cada bucket
-        int min = 48;
-        int max = 122;
-        int amp = (max - min) / (int) (Math.sqrt(this.numberOfWorkers));
 
-        // Inicializar buckets
-        for (int i = 0; i < this.numberOfWorkers; i++) {
-            buckets.add(new ArrayList<>());
+        for (int i = 0; i < numberOfWorkers; i ++) {
+            List<String> chunk = new ArrayList<>();
+            if (i == (this.numberOfWorkers-1)){
+                chunk = new ArrayList<>(originalList.subList(i*chunkSize, originalList.size()));
+            }else{
+                chunk = new ArrayList<>(originalList.subList(i*chunkSize, (i+1)*chunkSize));
+            }
+            dividedList.add(chunk);
         }
 
-        // Distribuir elementos en buckets
-        for (String value : data) {
-            int bucketIndex = Math.min((value.charAt(0) - min) / amp, this.numberOfWorkers - 1);
-            buckets.get(bucketIndex).add(value);
-        }
-
-        return buckets;
+        return dividedList;
     }
 
-    private List<String> parallelSortBuckets(List<List<String>> buckets) {
+    private List<String> kWayMerge(List<List<String>> lists) {
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> a.val.compareTo(b.val));
 
-        List<List<String>> sortedBuckets = new ArrayList<>();
-
-        
-        //Distribute buckets into Workers
-        for (int i = 0; i<buckets.size(); i++) {
-            sortedBuckets.add(this.registeredWorkers.get(i).sortArray(buckets.get(i)));
+        // Agregar el primer elemento de cada lista al min heap
+        for (int i = 0; i < lists.size(); i++) {
+            if (!lists.get(i).isEmpty()) {
+                minHeap.offer(new ListNode(i, 0, lists.get(i).get(0)));
+            }
         }
 
-        List<String> sortedData = new ArrayList<>();
-        //Concat Results this can be optimized by taking the expected position of the sorted Bucket into the original list.
-        for (List<String> sortedBucket: sortedBuckets){
-            sortedData.addAll(sortedBucket);
+        List<String> result = new ArrayList<>();
+
+        while (!minHeap.isEmpty()) {
+            ListNode node = minHeap.poll();
+            result.add(node.val);
+
+            // Mover al siguiente elemento de la lista actual
+            if (node.index + 1 < lists.get(node.listIndex).size()) {
+                minHeap.offer(new ListNode(node.listIndex, node.index + 1, lists.get(node.listIndex).get(node.index + 1)));
+            }
         }
-        return sortedData;
+
+        return result;
+    }
+
+    class ListNode {
+        int listIndex;
+        int index;
+        String val;
+
+        public ListNode(int listIndex, int index, String val) {
+            this.listIndex = listIndex;
+            this.index = index;
+            this.val = val;
+        }
     }
 
 }

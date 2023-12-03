@@ -26,9 +26,9 @@ public class Client {
       }
 
       List<String> inputList = new ArrayList<>();
-      inputList.add("banana");
-      inputList.add("apple");
       inputList.add("orange");
+      inputList.add("apple");
+      inputList.add("banana");
       inputList.add("grape");
       inputList.add("watermelon");
       ArrayList<String> result = (ArrayList<String>) masterCoordinator.disSort(inputList);

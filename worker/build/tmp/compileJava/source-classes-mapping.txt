@@ -1,5 +1,5 @@
-Sorting/SorterPrx.java
- Sorting.SorterPrx
+Sorting/WorkersHandlerPrx.java
+ Sorting.WorkersHandlerPrx
 Sorting/_SorterPrxI.java
  Sorting._SorterPrxI
 Sorting/Sorter.java
@@ -7,8 +7,8 @@ Sorting/Sorter.java
  Sorting.Sorter$1
 SortingI.java
  SortingI
-Sorting/WorkersHandlerPrx.java
- Sorting.WorkersHandlerPrx
+Sorting/SorterPrx.java
+ Sorting.SorterPrx
 Worker.java
  Worker
 Sorting/WorkersHandler.java

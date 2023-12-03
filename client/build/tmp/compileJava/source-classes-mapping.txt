@@ -1,16 +1,16 @@
-Sorting/SorterPrx.java
- Sorting.SorterPrx
+Sorting/WorkersHandlerPrx.java
+ Sorting.WorkersHandlerPrx
 Sorting/_SorterPrxI.java
  Sorting._SorterPrxI
 Sorting/Sorter.java
  Sorting.Sorter
  Sorting.Sorter$1
-Sorting/WorkersHandlerPrx.java
- Sorting.WorkersHandlerPrx
-Client.java
- Client
+Sorting/SorterPrx.java
+ Sorting.SorterPrx
+Sorting/_WorkersHandlerPrxI.java
+ Sorting._WorkersHandlerPrxI
 Sorting/WorkersHandler.java
  Sorting.WorkersHandler
  Sorting.WorkersHandler$1
-Sorting/_WorkersHandlerPrxI.java
- Sorting._WorkersHandlerPrxI
+Client.java
+ Client

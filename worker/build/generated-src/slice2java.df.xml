@@ -1,15 +1,15 @@
 <state>
-  <timestamp value='1701550326048' />
+  <timestamp value='1701568865793' />
   <sourceSet name='default'>
-    <source name='D:\Dell\Escritorio\DistributedSort\Sorting.ice'>
-      <file name='D:\Dell\Escritorio\DistributedSort\worker\build\generated-src\Sorting\Sorter.java' />
-      <file name='D:\Dell\Escritorio\DistributedSort\worker\build\generated-src\Sorting\WorkersHandler.java' />
-      <file name='D:\Dell\Escritorio\DistributedSort\worker\build\generated-src\Sorting\SorterPrx.java' />
-      <file name='D:\Dell\Escritorio\DistributedSort\worker\build\generated-src\Sorting\_SorterPrxI.java' />
-      <file name='D:\Dell\Escritorio\DistributedSort\worker\build\generated-src\Sorting\WorkersHandlerPrx.java' />
-      <file name='D:\Dell\Escritorio\DistributedSort\worker\build\generated-src\Sorting\_WorkersHandlerPrxI.java' />
+    <source name='/home/swarch/Desktop/A00377741/DistributedSort/Sorting.ice'>
+      <file name='/home/swarch/Desktop/A00377741/DistributedSort/worker/build/generated-src/Sorting/Sorter.java' />
+      <file name='/home/swarch/Desktop/A00377741/DistributedSort/worker/build/generated-src/Sorting/WorkersHandler.java' />
+      <file name='/home/swarch/Desktop/A00377741/DistributedSort/worker/build/generated-src/Sorting/SorterPrx.java' />
+      <file name='/home/swarch/Desktop/A00377741/DistributedSort/worker/build/generated-src/Sorting/_SorterPrxI.java' />
+      <file name='/home/swarch/Desktop/A00377741/DistributedSort/worker/build/generated-src/Sorting/WorkersHandlerPrx.java' />
+      <file name='/home/swarch/Desktop/A00377741/DistributedSort/worker/build/generated-src/Sorting/_WorkersHandlerPrxI.java' />
     </source>
-    <arg value='D:\Program Files\ZeroC\Ice-3.7.10\\bin\slice2java.exe' />
-    <arg value='-ID:\Program Files\ZeroC\Ice-3.7.10\\slice' />
+    <arg value='/opt/Ice-3.7.6/bin/slice2java' />
+    <arg value='-I/opt/Ice-3.7.6/slice' />
   </sourceSet>
 </state>

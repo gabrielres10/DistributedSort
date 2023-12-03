@@ -29,7 +29,7 @@ public class Master extends Application {
       adapter.activate();
       
       System.out.println("Master Server running...");
-      long init = System.currentTimeMillis();
+      
       waitingFileName();
       // -----------------Lógica para ordenar el archivo---------------
       ArrayList<Integer> numbersToOrder = new ArrayList<>();
@@ -38,6 +38,7 @@ public class Master extends Application {
       numbersToOrder.add(8);
       numbersToOrder.add(1);
       numbersToOrder.add(9);
+      long init = System.currentTimeMillis();
       dis_order(numbersToOrder);
 
       long end = System.currentTimeMillis();
